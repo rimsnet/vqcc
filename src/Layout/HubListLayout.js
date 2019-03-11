@@ -38,17 +38,21 @@ const styles = theme => ({
         marginLeft: theme.spacing.unit,
         marginRight: theme.spacing.unit,
         width: 200,
+        top: '-20px'
     }
 });
 
 class HubListLayout extends React.Component {
     state = {
         value: 0,
+        search: ''
     };
 
-    handleChange = (event, value) => {
-        this.setState({ value });
-    };
+    handleChange = (event, value) => { this.setState({ value }); };
+
+    searchHandler = (e) => {
+        this.setState({ search: e.target.value })
+    }
 
     render() {
         const { classes } = this.props;
@@ -62,19 +66,21 @@ class HubListLayout extends React.Component {
                         <Tab label="CONNECTED (10)" />
                         <Tab label="DISCONNECTED (12)" />
                     </Tabs>
-
                 </AppBar>
                 <div className={classes.searchBar}>
                     <TextField
                         className={classes.textField}
                         defaultValue=""
+                        placeholder="Search"
                         margin="normal"
+                        name="search"
+                        onChange={this.searchHandler}
                     />
                     <button>Search</button>
                 </div>
-                {value === 0 && <TabContainer><VQHubList /></TabContainer>}
-                {value === 1 && <TabContainer>Contants have to be updated</TabContainer>}
-                {value === 2 && <TabContainer>Contants have to be updated</TabContainer>}
+                {value === 0 && <TabContainer><VQHubList hubData={this.state.search} /></TabContainer>}
+                {value === 1 && <TabContainer><VQHubList /></TabContainer>}
+                {value === 2 && <TabContainer><VQHubList /></TabContainer>}
 
             </div>
         );

@@ -6,6 +6,7 @@ import { Grid } from '@material-ui/core';
 const styles = { root: { flexGrow: 1 } }
 
 class HubDetailsLayout extends React.Component {
+    constructor(props){super(props)}
     render() {
         return (
             <div style={styles.root}>

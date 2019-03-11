@@ -9,16 +9,15 @@ class VQHubTableRow extends React.Component {
     render() {
         const { data } = this.props
         return (
-            <TableRow key={data.key} style={styles.tr}>
-                <TableCell>{data.id}</TableCell>
-                <TableCell>{data.serialNumber}</TableCell>
-                <TableCell>online</TableCell>
-                <TableCell>Pass</TableCell>
-                <TableCell>{data.created_on}</TableCell>
-                <TableCell>{data.created_on}</TableCell>
+            <TableRow key={data.key} style={styles.tr}>                
+                <TableCell>{data.vqSerial}</TableCell>
+                <TableCell>{data.status}</TableCell>
+                <TableCell>{data.factoryTestStatus}</TableCell>
+                <TableCell>{data.createdDateTime}</TableCell>
+                <TableCell>{data.updatedDateTime}</TableCell>
                 <TableCell>Dushan</TableCell>
-                <TableCell><VQHubIdentifyButton id={data.id} /></TableCell>
-                <TableCell><VQHubViewButton id={data.id} /></TableCell>
+                <TableCell> <VQHubIdentifyButton id={data.serial} /> </TableCell>
+                <TableCell><VQHubViewButton id={data.serial} /></TableCell>
             </TableRow>
         )
     }
