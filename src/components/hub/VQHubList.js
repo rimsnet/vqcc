@@ -9,17 +9,14 @@ const table = { width: '100%' }
 class VQHubList extends React.Component {
 
     constructor() { super(); this.state = { data: { result: [] } } }
+
     componentDidMount() {
-        this.loadData()
+        this.loadData();
     }
 
     loadData = () => {
         axios.get('/api/thing/find/all/1').then(res => { this.setState({ data: res.data }) })
     }
-
-    paginationHandler = (e, num) => {
-        console.log(num)
-    };
 
     render() {
         return (
@@ -39,7 +36,6 @@ class VQHubList extends React.Component {
                         {this.state.data.result.map((e, index) => (<VQHubTableRow key={index} data={e} />))}
                     </TableBody>
                 </Table>
-              
             </Paper>
         )
     }

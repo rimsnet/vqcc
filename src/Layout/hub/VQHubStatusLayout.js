@@ -6,8 +6,7 @@ class VQHubStatusLayout extends React.Component {
     render() {
         return (
             <div>
-                <VQHubConnected />
-                <br/>
+                <VQHubConnected />                
                 <VQHubQualityCheck />
             </div>
         )

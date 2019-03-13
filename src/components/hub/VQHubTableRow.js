@@ -2,6 +2,7 @@ import React from 'react'
 import { TableCell, TableRow } from '@material-ui/core'
 import VQHubIdentifyButton from '../buttons/VQHubIdentifyButton'
 import VQHubViewButton from '../buttons/VQHubViewButton';
+import VQHubQCTestButton from '../buttons/VQHubQCTestButton';
 
 const styles = { tr: { height: '35px' } }
 
@@ -16,7 +17,7 @@ class VQHubTableRow extends React.Component {
                 <TableCell>{data.createdDateTime}</TableCell>
                 <TableCell>{data.updatedDateTime}</TableCell>
                 <TableCell>Dushan</TableCell>
-                <TableCell> <VQHubIdentifyButton id={data.serial} /> </TableCell>
+                <TableCell> <VQHubQCTestButton id={data.serial} /> </TableCell>
                 <TableCell><VQHubViewButton id={data.serial} /></TableCell>
             </TableRow>
         )

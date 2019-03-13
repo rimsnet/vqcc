@@ -6,7 +6,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import VQSingleHubTestTable from '../table/VQSingleHubTestTable';
-import { Paper } from '@material-ui/core'
+import { Paper, Grid, Card, CardContent, CardHeader } from '@material-ui/core'
+import VQHubDeviceLayout from '../../Layout/hub/VQHubDeviceLayout'
+import {History, ContactPhone, WifiTethering } from '@material-ui/icons'
 
 function TabContainer(props) {
     return (
@@ -51,7 +53,7 @@ class VQHubDetailsTabView extends React.Component {
         const { classes } = this.props;
         const { value } = this.state;
 
-        return (
+        /*return (
             <Paper>
 
                 <AppBar position="static" color="default">
@@ -68,9 +70,57 @@ class VQHubDetailsTabView extends React.Component {
                 {value === 1 && <TabContainer><VQSingleHubTestTable id={this.props.id} /></TabContainer>}
                 {value === 2 && <TabContainer>C</TabContainer>}
                 {value === 3 && <TabContainer>D</TabContainer>}
-                {value === 4 && <TabContainer>E</TabContainer>}
+                {value === 4 && <TabContainer>E</TabContainer>} 
 
             </Paper>
+        ) */
+
+        return (
+
+            <Grid container spacing={16}>
+                <Grid item md={6}>
+                    <Card>
+                        <CardHeader title="Devices" avatar={<WifiTethering/>}/>
+                        <CardContent>
+                            <VQHubDeviceLayout id={this.props.id}/>
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item md={6}>
+                    <Card>
+                        <CardHeader title="Test history"  avatar={<History/>}/>
+                        <CardContent>
+                            <VQSingleHubTestTable id={this.props.id} />
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item md={6}>
+                    <Card>
+                        <CardHeader title="Events history"  avatar={<History/>}/>
+                        <CardContent>
+                            <VQSingleHubTestTable id={this.props.id} />
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item md={6}>
+                    <Card>
+                        <CardHeader title="Rules" />
+                        <CardContent>
+                            <VQSingleHubTestTable id={this.props.id} />
+                        </CardContent>
+                    </Card>
+                </Grid>
+                <Grid item md={6}>
+                    <Card>
+                        <CardHeader title="Contact list"  avatar={<ContactPhone/>}/>
+                        <CardContent>
+                            <VQSingleHubTestTable id={this.props.id} />
+                        </CardContent>
+                    </Card>
+                </Grid>
+
+            </Grid>
+
         )
     }
 }
