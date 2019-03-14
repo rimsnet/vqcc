@@ -11,11 +11,11 @@ const options = {
         '^/api/old-path': '/api/new-path', // rewrite path
         '^/api/remove/path': '/path' // remove base path
     },*/
-    router: {
+    /*router: {
         // when request.headers.host == 'dev.localhost:3000',
         // override target 'http://www.example.org' to 'http://localhost:8000'
         'dev.localhost:3000': 'http://localhost:3000'
-    }
+    }*/
 }
 
 // create the proxy (without context)

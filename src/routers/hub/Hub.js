@@ -3,7 +3,7 @@ import MainLayout from '../../Layout/MainLayout'
 import HubDetailsLayout from '../../Layout/HubDetailsLayout'
 
 class Hub extends React.Component {
-    constructor(props) { super(props); }
+    constructor(props) { super(props) }
     render() {
         return (
             <MainLayout dashboard={"Hub"}>

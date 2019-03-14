@@ -20,7 +20,7 @@ class VQHubList extends React.Component {
 
     render() {
         return (
-            <Paper style={{ position: 'relative' }}>
+            <Paper style={{ position: 'relative' }} square={true}>
                 <Table style={table}>
                     <VQTableHead head={[
                         'Serial Number',

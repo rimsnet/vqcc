@@ -32,10 +32,10 @@ class VQSingleHubTestTable extends React.Component {
                     <TableBody>
                         {this.state.data.result.map((e, index) => (
                             <TableRow key={index} style={styles.tr}>
-                                <TableCell>{e.testedDateTime}</TableCell>
-                                <TableCell>{e.testedBy}</TableCell>
-                                <TableCell>{e.comment}</TableCell>
-                                <TableCell><VQHubViewTestResultButton id={e.id} vqSerial={e.vqSerial}/></TableCell>
+                                <TableCell style={{maxWidth:50}}>{e.testedDateTime}</TableCell>
+                                <TableCell style={{maxWidth:50}}>{e.testedBy}</TableCell>
+                                <TableCell style={{maxWidth:50}}>{e.comment}</TableCell>
+                                <TableCell style={{maxWidth:50}}><VQHubViewTestResultButton id={e.id} vqSerial={e.vqSerial}/></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

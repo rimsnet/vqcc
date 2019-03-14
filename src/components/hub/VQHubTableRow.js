@@ -10,15 +10,15 @@ class VQHubTableRow extends React.Component {
     render() {
         const { data } = this.props
         return (
-            <TableRow key={data.key} style={styles.tr}>                
-                <TableCell>{data.vqSerial}</TableCell>
-                <TableCell>{data.status}</TableCell>
-                <TableCell>{data.factoryTestStatus}</TableCell>
-                <TableCell>{data.createdDateTime}</TableCell>
-                <TableCell>{data.updatedDateTime}</TableCell>
-                <TableCell>Dushan</TableCell>
-                <TableCell> <VQHubQCTestButton id={data.serial} /> </TableCell>
-                <TableCell><VQHubViewButton id={data.serial} /></TableCell>
+            <TableRow key={data.key} style={styles.tr}>
+                <TableCell style={{ maxWidth: 25, minWidth: 25 }}>{data.vqSerial}</TableCell>
+                <TableCell style={{ maxWidth: 25, minWidth: 25 }}>{data.status}</TableCell>
+                <TableCell style={{ maxWidth: 25, minWidth: 25 }}>{data.factoryTestStatus}</TableCell>
+                <TableCell style={{ maxWidth: 25, minWidth: 25 }}>{data.createdDateTime}</TableCell>
+                <TableCell style={{ maxWidth: 25, minWidth: 25 }}>{data.updatedDateTime}</TableCell>
+                <TableCell style={{ maxWidth: 25, minWidth: 25 }}>Dushan</TableCell>
+                <TableCell style={{ maxWidth: 25, minWidth: 25 }}> <VQHubQCTestButton id={data.serial} /> </TableCell>
+                <TableCell style={{ maxWidth: 25, minWidth: 25 }}><VQHubViewButton id={data.serial} /></TableCell>
             </TableRow>
         )
     }
