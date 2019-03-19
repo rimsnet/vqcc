@@ -1,6 +1,6 @@
 import React from 'react'
 import VQHubDetailsTopView from '../components/hub/VQHubDetailsTopView';
-import VQHubDetailsTabView from '../components/hub/VQHubDetailsBottomView/VQHubDetailsTabView';
+import VQHubDetailsBottomView from '../components/hub/VQHubDetailsBottomView/VQHubDetailsBottomView';
 import { Grid } from '@material-ui/core';
 
 const styles = { root: { flexGrow: 1 } }
@@ -12,7 +12,7 @@ class HubDetailsLayout extends React.Component {
             <div style={styles.root}>
                 <Grid container spacing={8}>
                     <Grid item md={12}><VQHubDetailsTopView id={this.props.id} /></Grid>
-                    <Grid item md={12}><VQHubDetailsTabView id={this.props.id} /></Grid>
+                    <Grid item md={12}><VQHubDetailsBottomView id={this.props.id} /></Grid>
                 </Grid>
             </div>
         )

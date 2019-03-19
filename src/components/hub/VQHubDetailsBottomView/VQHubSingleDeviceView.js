@@ -3,13 +3,16 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import SettingsRemote from '@material-ui/icons/SettingsRemote'
 import { Card, CardContent, CardHeader } from '@material-ui/core'
-import {Battery20,Vibration,Highlight,Person} from '@material-ui/icons'
+import { Battery20, Vibration, Highlight, Person } from '@material-ui/icons'
 
-const styles = {  
-    media: {
-       // height: 200,
+const styles = theme => ({
+    CardContent: {
+        paddingTop: 1
     },
-};
+    CardHeader: {
+        paddingBottom: 10
+    }
+});
 
 
 class VQHubSingleDeviceView extends React.Component {
@@ -18,12 +21,16 @@ class VQHubSingleDeviceView extends React.Component {
         const data = this.props
         return (
             <Card>
-                <CardHeader avatar={<SettingsRemote />} title={data.title} subheader={data.sub} />
-                <CardContent>
-                 <Battery20/>{data.id} &nbsp;
-                 <Vibration/> Vibration <br/>
+                <CardHeader className={classes.CardHeader} avatar={<SettingsRemote />} title={data.title} subheader={data.sub} />
+                <CardContent className={classes.CardContent}>
+                     Power : 10% <br />
+                    Vibration : Detected <br />
+                    Luminance : 400<br />
+                    Motion : No<br />
+
+                    {/*  <Battery20 /> Vibration <br/>
                  <Highlight/> Luminance 
-                 <Person/> Motion
+                 <Person/> Motion */}
                 </CardContent>
             </Card>
         )

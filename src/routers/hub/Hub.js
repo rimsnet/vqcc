@@ -4,7 +4,7 @@ import HubDetailsLayout from '../../Layout/HubDetailsLayout'
 
 class Hub extends React.Component {
     constructor(props) { super(props) }
-    render() {
+    render() {     
         return (
             <MainLayout dashboard={"Hub"}>
                 <HubDetailsLayout id={this.props.match.params.id} />
