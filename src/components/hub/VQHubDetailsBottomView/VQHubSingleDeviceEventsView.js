@@ -7,9 +7,11 @@ class VQHubSingleDeviceEventsView extends React.Component {
         return (
             <Table padding='none'>
                 <TableHead>
-                    <TableCell>&nbsp;</TableCell>
-                    <TableCell>Event</TableCell>
-                    <TableCell>View</TableCell>
+                    <TableRow>
+                        <TableCell></TableCell>
+                        <TableCell>Event</TableCell>
+                        <TableCell>View</TableCell>
+                    </TableRow>
                 </TableHead>
                 <TableBody>
                     <TableRow key={1}>
@@ -17,42 +19,42 @@ class VQHubSingleDeviceEventsView extends React.Component {
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>
                     </TableRow>
-                    <TableRow  key={2}>
+                    <TableRow key={2}>
                         <TableCell><BatteryAlert /></TableCell>
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>
                     </TableRow>
-                    <TableRow  key={3}>
+                    <TableRow key={3}>
                         <TableCell><BatteryAlert /></TableCell>
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>
                     </TableRow>
-                    <TableRow  key={4}>
+                    <TableRow key={4}>
                         <TableCell><Wallpaper /></TableCell>
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>
                     </TableRow>
-                    <TableRow  key={5}>
+                    <TableRow key={5}>
                         <TableCell><BatteryAlert /></TableCell>
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>
                     </TableRow>
-                    <TableRow  key={6}>
+                    <TableRow key={6}>
                         <TableCell><Wallpaper /></TableCell>
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>
                     </TableRow>
-                    <TableRow  key={7}>
+                    <TableRow key={7}>
                         <TableCell><BatteryAlert /></TableCell>
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>
                     </TableRow>
-                    <TableRow  key={8}>
+                    <TableRow key={8}>
                         <TableCell><BatteryAlert /></TableCell>
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>
                     </TableRow>
-                    <TableRow  key={9}>
+                    <TableRow key={9}>
                         <TableCell><BatteryAlert /></TableCell>
                         <TableCell>Front door | 2019-01-02T09:04:49.434Z</TableCell>
                         <TableCell><button>view</button></TableCell>

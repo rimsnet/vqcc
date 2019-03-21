@@ -1,14 +1,45 @@
 import React from 'react'
-import { Button } from '@material-ui/core'
+import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@material-ui/core'
 
 class VQHubAddContact extends React.Component {
-    addContactHandler = () => { alert('VQHub Add Contact - clicked') }
+    state = { open: false };
+    handleClickOpen = () => { this.setState({ open: true }) }
+    handleClose = () => { this.setState({ open: false }) }
+
     render() {
         return (
-            <Button
-                onClick={this.addContactHandler}
-                color="primary"
-                variant="contained">Add Contact</Button>
+            <>
+                <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={this.handleClickOpen}>Add Contact</Button>
+
+                <Dialog
+                    open={this.state.open}
+                    onClose={this.handleClose}
+                    aria-labelledby="form-dialog-title">
+
+                    <DialogTitle id="form-dialog-title">Add Contact</DialogTitle>
+                    <DialogContent>
+                        <DialogContentText>
+                            To subscribe to this website, please enter your email address here. We will send                  updates occasionally.
+                        </DialogContentText>
+                        <TextField
+                            autoFocus
+                            margin="dense"
+                            id="deviceName"
+                            label="Contact Name"
+                            type="text"
+                            fullWidth />
+
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">Cancel</Button>
+                        <Button onClick={this.handleClose} color="primary">Add Contact</Button>
+                    </DialogActions>
+                </Dialog>
+            </>
+
         )
     }
 }

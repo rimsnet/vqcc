@@ -8,7 +8,7 @@ const table = { width: '100%' }
 
 class VQHubList extends React.Component {
 
-    constructor() { super(); this.state = { data: { result: [] } } }
+    constructor() { super(); this.state = { data: { data: [] } } }
 
     componentDidMount() {
         this.loadData();
@@ -33,7 +33,7 @@ class VQHubList extends React.Component {
                         'View'
                     ]} />
                     <TableBody>
-                        {this.state.data.result.map((e, index) => (<VQHubTableRow key={index} data={e} />))}
+                        {this.state.data.data.map((e, index) => (<VQHubTableRow key={index} data={e} />))}
                     </TableBody>
                 </Table>
             </Paper>

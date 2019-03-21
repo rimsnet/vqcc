@@ -18,7 +18,7 @@ class VQHubDetailsTopView extends React.Component {
                 <Grid container spacing={8}>
                     <Grid item> <VQHubStatusLayout data={this.state} /></Grid>
                     <Grid item md={6}> <VQHubDetalsView data={this.state} /></Grid>
-                    <Grid item md={4}> <VQHubQuickActions data={this.state} id={this.props.id} /></Grid>
+                    {/*<Grid item md={4}> <VQHubQuickActions  data={this.state} id={this.props.id} /></Grid> */}
                 </Grid>
             </div>
         )
