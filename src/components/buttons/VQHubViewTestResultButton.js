@@ -15,7 +15,9 @@ class VQHubViewTestResultButton extends React.Component {
     state = {
         open: false,
         results: {
-            result: {}
+            data: {
+                result: {}
+            }
         },
         buttonText: 'view'
     };
@@ -49,12 +51,16 @@ class VQHubViewTestResultButton extends React.Component {
                         <DialogContent>
                             <Typography gutterBottom>
 
-                                testedDateTime : {data.testedDateTime}<br />
-                                testedBy : {data.testedBy}<br />
-                                comment : {data.comment}<br /><br />
+                                {JSON.stringify(data.data)}
+                                <br/>
+                                <br/>
                                 
-                                {Object.keys(data.result).map((keyName, i) => (
-                                    <span key={i}> {keyName} : {data.result[keyName]} <br /></span>
+                                testedDateTime : {data.data.testedDateTime}<br />
+                                testedBy : {data.data.testedBy}<br />
+                                comment : {data.data.comment}<br /><br />
+
+                                {Object.keys(data.data.result).map((keyName, i) => (
+                                    <span key={i}> {keyName} : {data.data.result[keyName]} <br /></span>
                                 ))}
 
                             </Typography>

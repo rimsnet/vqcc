@@ -1,6 +1,4 @@
 import React from 'react'
-import { TableBody } from '@material-ui/core/TableBody'
-import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
@@ -8,10 +6,7 @@ const styles = theme => ({
 });
 
 class VQTableBody extends React.Component {
-
-    render() {
-        return ('VQTableBody has to be developed')
-    }
+    render() { return ('VQTableBody has to be developed') }
 }
 
 

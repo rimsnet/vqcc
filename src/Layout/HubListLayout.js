@@ -21,6 +21,30 @@ TabContainer.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
+const ConnectedTab = (props) => {
+    return (
+        <div>
+            <span>ALL (10)</span>
+        </div>
+    )
+}
+
+const DisconnectedTab = (props) => {
+    return (
+        <div>
+            <span>CONNECTED (10)</span>
+        </div>
+    )
+}
+
+const DisabledTab = (props) => {
+    return (
+        <div>
+            <span>DISCONNECTED (12)</span>
+        </div>
+    )
+}
+
 
 const styles = theme => ({
     root: {
@@ -43,6 +67,7 @@ const styles = theme => ({
 });
 
 class HubListLayout extends React.Component {
+
     state = {
         value: 0,
         search: ''
@@ -62,9 +87,9 @@ class HubListLayout extends React.Component {
             <div className={classes.root}>
                 <AppBar position="static" color="default">
                     <Tabs value={value} onChange={this.handleChange} >
-                        <Tab label="ALL (16)" />
-                        <Tab label="CONNECTED (10)" />
-                        <Tab label="DISCONNECTED (12)" />
+                        <Tab label={<ConnectedTab />} />
+                        <Tab label={<DisconnectedTab />} />
+                        <Tab label={<DisabledTab />} />
                     </Tabs>
                 </AppBar>
                 <div className={classes.searchBar}>

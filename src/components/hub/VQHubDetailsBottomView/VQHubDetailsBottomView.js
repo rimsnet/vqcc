@@ -1,11 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import Typography from '@material-ui/core/Typography';
-import VQSingleHubTestTable from '../../table/VQSingleHubTestTable';
-import { Paper, Grid, Card, CardContent, CardHeader, CardActions, Button, Collapse } from '@material-ui/core'
-import VQHubDeviceLayout from '../../../Layout/hub/VQHubDeviceLayout'
+import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'
+import Typography from '@material-ui/core/Typography'
 import { History, ContactPhone, WifiTethering } from '@material-ui/icons'
+import { Paper, Grid, Card, CardContent, CardHeader, CardActions, Button, Collapse } from '@material-ui/core'
+
+import VQSingleHubTestTable from '../../table/VQSingleHubTestTable'
+import VQHubDeviceLayout from '../../../Layout/hub/VQHubDeviceLayout'
 import VQHubSingleDeviceEventsView from './VQHubSingleDeviceEventsView'
 import VQHubAddDevice from '../VQHubDetailsBottomView/VQHubAddDevice'
 import VQHubAddContact from '../VQHubDetailsBottomView/VQHubAddContact'
@@ -13,6 +14,8 @@ import VQHubAddRule from '../VQHubDetailsBottomView/VQHubAddRule'
 import VQHubAddLocation from '../VQHubDetailsBottomView/VQHubAddLocation'
 import SampleSocket from '../VQHubDetailsBottomView/SampleSocket'
 import VQHubDeviceLocationView from '../VQHubDetailsBottomView/VQHubDeviceLocationView'
+import VQHubSingleDeviceRulesView from '../VQHubDetailsBottomView/VQHubSingleDeviceRulesView'
+import VQHubSingleDeviceContactView from '../VQHubDetailsBottomView/VQHubSingleDeviceContactView'
 
 function TabContainer(props) {
     return (
@@ -49,7 +52,7 @@ class VQHubDetailsBottomView extends React.Component {
         return (
 
             <Grid container spacing={16}>
-            <Grid item md={12}>
+                <Grid item md={12}>
                     <SampleSocket />
                 </Grid>
                 <Grid item md={6}>
@@ -58,7 +61,7 @@ class VQHubDetailsBottomView extends React.Component {
                             title={<span className={classes.title}>Devices</span>}
                             avatar={<WifiTethering />}
                             action={<div><VQHubAddDevice id={parent_id} /> <VQHubAddLocation id={parent_id} /></div>} />
-                        <CardContent>                            
+                        <CardContent>
                             <VQHubDeviceLayout id={parent_id} />
                         </CardContent>
                     </Card>
@@ -67,7 +70,7 @@ class VQHubDetailsBottomView extends React.Component {
                     <Card>
                         <CardHeader title={<span className={classes.title}>Location history</span>} avatar={<History />} />
                         <CardContent>
-                            <VQHubDeviceLocationView id={this.props.id} />
+                            <VQHubDeviceLocationView id={this.props.id} {...this.props} />
                         </CardContent>
                     </Card>
                 </Grid>
@@ -83,28 +86,26 @@ class VQHubDetailsBottomView extends React.Component {
                     <Card>
                         <CardHeader title={<span className={classes.title}>Events history</span>} avatar={<History />} />
                         <CardContent>
-                            <VQHubSingleDeviceEventsView id={this.props.id} />
+                            <VQHubSingleDeviceEventsView id={this.props.id} server={this.props.server} />
                         </CardContent>
                     </Card>
                 </Grid>
                 <Grid item md={6}>
                     <Card>
-                        <CardHeader title="Rules" action={<VQHubAddRule id={this.props.id} />}/>
+                        <CardHeader title="Rules" action={<VQHubAddRule id={this.props.id} />} />
                         <CardContent>
-                            <VQSingleHubTestTable id={this.props.id} />
-                        </CardContent>                       
+                            <VQHubSingleDeviceRulesView id={this.props.id} />                
+                        </CardContent>
                     </Card>
                 </Grid>
                 <Grid item md={6}>
                     <Card>
-                        <CardHeader title="Contact list" avatar={<ContactPhone />} action={ <VQHubAddContact id={this.props.id} />} />
+                        <CardHeader title={<span className={classes.title}>Contact list</span>} avatar={<ContactPhone />} action={<VQHubAddContact id={this.props.id} />} />
                         <CardContent>
-                            <VQSingleHubTestTable id={this.props.id} />
+                            <VQHubSingleDeviceContactView id={this.props.id} />
                         </CardContent>
                     </Card>
                 </Grid>
-
-                
 
             </Grid>
 

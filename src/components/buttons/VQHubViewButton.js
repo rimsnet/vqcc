@@ -7,8 +7,6 @@ const Button = (props) => (
     )} />
 )
 
-class VQHubViewButton extends React.Component {
-    render() { return <Button id={this.props.id} /> }
-}
+export default class VQHubViewButton extends React.Component { render() { return <Button id={this.props.id} /> } }
 
-export default VQHubViewButton
+

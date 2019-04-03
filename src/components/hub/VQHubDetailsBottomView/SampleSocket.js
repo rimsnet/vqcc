@@ -6,13 +6,15 @@ class SampleSocket extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            messages: { }
+            messages: {}
         };
+
+        this.connection = new WebSocket('wss://api.hitbtc.com/api/2/ws');  
     }
 
     componentDidMount() {
         // this is an "echo" websocket service for testing pusposes
-        this.connection = new WebSocket('wss://api.hitbtc.com/api/2/ws');
+
         // listen to onmessage event
         this.connection.onmessage = evt => {
             // add the new message to state
@@ -34,7 +36,10 @@ class SampleSocket extends React.Component {
             }))
             //}, 2000)
         }
+    }
 
+    componentWillUnmount() {
+        this.connection.close();
     }
 
 
@@ -46,11 +51,11 @@ class SampleSocket extends React.Component {
             <div>
                 Count: {(typeof this.state.messages.params === 'object') ?
                     <p>
-                        ASK : {this.state.messages.params.ask} <br/>
-                        BID : {this.state.messages.params.bid} <br/>
-                        TIMESTAMP : {this.state.messages.params.timestamp} <br/>
-                        VOLUMEQOTE : {this.state.messages.params.volumeQuote} <br/>
-                        VOLUME : {this.state.messages.params.volume} <br/>
+                        ASK : {this.state.messages.params.ask} <br />
+                        BID : {this.state.messages.params.bid} <br />
+                        TIMESTAMP : {this.state.messages.params.timestamp} <br />
+                        VOLUMEQOTE : {this.state.messages.params.volumeQuote} <br />
+                        VOLUME : {this.state.messages.params.volume} <br />
                     </p>
 
                     : ''}

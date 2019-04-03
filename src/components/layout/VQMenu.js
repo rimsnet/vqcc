@@ -11,7 +11,10 @@ class VQMenu extends React.Component {
         return (
             <List>
                 <ListItem>
-                    <ListItemIcon><DashboardIcon /></ListItemIcon><Link to={"/"}><ListItemText primary="Hubs" /></Link>
+                    <ListItemIcon><DashboardIcon /></ListItemIcon><Link to={'/'}><ListItemText primary="Dash" /></Link>
+                </ListItem>
+                <ListItem>
+                    <ListItemIcon><DashboardIcon /></ListItemIcon><Link to={"/hubs"}><ListItemText primary="Hubs" /></Link>
                 </ListItem>
             </List>
         )

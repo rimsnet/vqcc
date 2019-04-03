@@ -40,8 +40,6 @@ class QCPortalLayout extends React.Component {
     }
 }
 
-QCPortalLayout.propTypes = {
-    classes: PropTypes.object.isRequired,
-}
+QCPortalLayout.propTypes = { classes: PropTypes.object.isRequired, }
 
 export default withStyles(styles)(QCPortalLayout)

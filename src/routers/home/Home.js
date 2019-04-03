@@ -1,9 +1,5 @@
 import React from 'react'
 import MainLayout from '../../Layout/MainLayout';
-import HubListLayout from '../../Layout/HubListLayout';
+import HomeLayout from '../../Layout/home/HomeLayout';
 
-class Home extends React.Component {
-    render() { return (<MainLayout dashboard={"Hubs"}><HubListLayout /></MainLayout>) }
-}
-
-export default Home
+export default class Home extends React.Component { constructor(props) { super(props) } render() { return (<MainLayout dashboard={"Dashboard"}><HomeLayout {...this.props} /></MainLayout>) } }
