@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types';
 import { Input, Button, FormControl, Select, InputLabel, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
+import '../../App.css'
 
 const styles = theme => ({
     container: {
@@ -28,7 +29,7 @@ class VQHubAddRuleButton extends React.Component {
                 <Button
                     color="primary"
                     variant="contained"
-                    style={{ padding: '0px 8px' }}
+                    className="Button"
                     onClick={this.handleClickOpen}>Add Rule</Button>
 
                 <Dialog
@@ -66,8 +67,8 @@ class VQHubAddRuleButton extends React.Component {
 
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.handleClose} color="primary">Add Rule</Button>
+                        <Button className="Button" onClick={this.handleClose} color="primary">Cancel</Button>
+                        <Button className="Button" onClick={this.handleClose} color="primary">Add Rule</Button>
                     </DialogActions>
                 </Dialog>
             </>

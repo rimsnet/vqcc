@@ -10,6 +10,8 @@ import Button from '@material-ui/core/Button'
 
 import VQHubList from '../hubs/VQHubList'
 
+import '../../App.css' 
+
 function TabContainer(props) {
     return (
         <Typography component="div" style={{ padding: 8 * 0 }}>
@@ -103,7 +105,7 @@ class VQHubListingTab extends React.Component {
                         name="search"
                         onChange={this.searchHandler}
                     />
-                    <Button className={classes.viewButton} color="primary" variant="contained">Search</Button>
+                    <Button className="Button-for-table" color="primary" variant="contained">Search</Button>
                 </div>
                 {value === 0 && <TabContainer><VQHubList options={this.props.options}/></TabContainer>}
                 {value === 1 && <TabContainer>Table has to be updated</TabContainer>}

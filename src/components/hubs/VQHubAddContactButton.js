@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@material-ui/core'
+import '../../App.css'
 
 class VQHubAddContactButton extends React.Component {
     state = { open: false };
@@ -10,7 +11,7 @@ class VQHubAddContactButton extends React.Component {
         return (
             <>
                 <Button
-                    style={{padding:'0px 8px'}}
+                    className="Button"
                     color="primary"
                     variant="contained"
                     onClick={this.handleClickOpen}>Add Contact</Button>
@@ -35,8 +36,8 @@ class VQHubAddContactButton extends React.Component {
 
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.handleClose} color="primary">Add Contact</Button>
+                        <Button className="Button" onClick={this.handleClose} color="primary">Cancel</Button>
+                        <Button className="Button" onClick={this.handleClose} color="primary">Add Contact</Button>
                     </DialogActions>
                 </Dialog>
             </>

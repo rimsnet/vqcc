@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { Table, TableCell, TableRow, TableHead, TableBody } from '@material-ui/core'
 import VQHubViewRuleButton from './VQHubViewRuleButton'
+import '../../App.css'
 
 const styles = theme => ({
     root: {},
     tableCell: { padding: '0px' },
-    tableRow: { height: '30px' }
+    tableRow: { height: '40px' }
 })
 
 const tempData = [
@@ -30,18 +31,18 @@ class VQHubSingleDeviceRulesView extends React.Component {
             <>
                 <Table>
                     <TableHead>
-                        <TableRow className={classes.tableRow}>
+                        <TableRow className="Table-row">
                             <TableCell>Rule</TableCell>
                             <TableCell>Types</TableCell>
-                            <TableCell style={{ width: '80px' }}>view</TableCell>
+                            <TableCell className="Table-view">view</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {tempData.map((e, i) => (
-                            <TableRow key={i} className={classes.tableRow}>
-                                <TableCell className={classes.tableCell}>{e.rule}</TableCell>
-                                <TableCell className={classes.tableCell}>{e.type}</TableCell>
-                                <TableCell className={classes.tableCell}><VQHubViewRuleButton id={e.id} /></TableCell>
+                            <TableRow key={i} className="Table-row">
+                                <TableCell className="Table-cell">{e.rule}</TableCell>
+                                <TableCell className="Table-cell">{e.type}</TableCell>
+                                <TableCell className="Table-view"><VQHubViewRuleButton id={e.id} /></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

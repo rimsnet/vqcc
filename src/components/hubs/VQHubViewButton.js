@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button'
 
+import '../../App.css'
+
 const styles = theme => ({
     viewButton: { padding: '0px 8px' },
 })
@@ -10,7 +12,7 @@ const styles = theme => ({
 class VQHubViewButton extends React.Component {
 
     handleClick = () => {
-        this.props.options.push('/hub/' + this.props.id)
+        this.props.options.push('/hub/' + this.props.id + '/' + this.props.serial)
     }
 
 
@@ -22,7 +24,7 @@ class VQHubViewButton extends React.Component {
                 variant="contained"
                 color="primary"
                 onClick={this.handleClick}
-                className={classes.viewButton}>View</Button>
+                className="Button">View</Button>
         )
     }
 }

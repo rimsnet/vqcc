@@ -39,7 +39,7 @@ class ActionsLayout extends React.Component {
                 <Paper className={classes.paper} elevation={0}>
                     <VQActionHubsCard
                         image="https://previews.123rf.com/images/amin268/amin2681706/amin268170601102/81040012-router-flat-icon-internet-and-wireless-wifi-vector-graphics-a-colorful-solid-pattern-on-a-white-back.jpg"
-                        name="Hubs : 1156"
+                        name="Hubs"
                         location="/hubs"
                         description="Manage All Hubs"
                         actions={this.props.history}
@@ -49,7 +49,7 @@ class ActionsLayout extends React.Component {
                         image="https://www.st.com/content/dam/stm32-gui/ST2211_call_center_purple.png"
                         name="Users"
                         location="/user-access"
-                        description="Manage IVR Users"
+                        description="Manage Users"
                         actions={this.props.history}
                     />
                     <VQActionHubsCard

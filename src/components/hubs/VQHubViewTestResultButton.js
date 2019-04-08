@@ -8,7 +8,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
-//import axios from 'axios'
+import axios from 'axios'
+
+import '../../App.css'
 
 
 class VQHubViewTestResultButton extends React.Component {
@@ -24,9 +26,9 @@ class VQHubViewTestResultButton extends React.Component {
 
     handleClickOpen = () => {
         this.setState({ buttonText: 'Please wait' })
-        /*axios.get('/api/thing/test/find/' + this.props.id).then(res => {
+        axios.get('/api/thing/test/result/' + this.props.id).then(res => {
             this.setState({ results: res.data, open: true, buttonText: 'view' });
-        })*/
+        })
     };
 
     handleClose = () => {
@@ -39,7 +41,7 @@ class VQHubViewTestResultButton extends React.Component {
         const data = this.state.results
         return (
             <div>
-                <Button style={{padding:'0px 8px',fontSize:'11px'}} onClick={this.handleClickOpen} color="primary"  variant="contained">{this.state.buttonText}</Button>
+                <Button className="Button" onClick={this.handleClickOpen} color="primary" variant="contained">{this.state.buttonText}</Button>
                 <div>
                     <Dialog
                         onClose={this.handleClose}
@@ -51,10 +53,9 @@ class VQHubViewTestResultButton extends React.Component {
                         <DialogContent>
                             <Typography gutterBottom>
 
-                                {JSON.stringify(data.data)}
-                                <br/>
-                                <br/>
-                                
+                                <br />
+                                <br />
+
                                 testedDateTime : {data.data.testedDateTime}<br />
                                 testedBy : {data.data.testedBy}<br />
                                 comment : {data.data.comment}<br /><br />
@@ -66,9 +67,7 @@ class VQHubViewTestResultButton extends React.Component {
                             </Typography>
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={this.handleClose} color="primary">
-                                Close
-                            </Button>
+                            <Button onClick={this.handleClose} color="primary" variant="contained" className="Button">Close</Button>
                         </DialogActions>
                     </Dialog>
                 </div>

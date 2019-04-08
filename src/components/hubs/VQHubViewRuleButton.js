@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { DialogContent, Dialog, DialogActions, DialogTitle, Button } from '@material-ui/core';
+import '../../App.css'
 
 const styles = theme => ({
     root: {},
@@ -20,7 +21,7 @@ class VQHubViewRuleButton extends React.Component {
 
         return (
             <div>
-                <Button onClick={this.handleClickOpen} style={{ padding: '0px 8px', fontSize: '11px' }} color="primary" variant="contained">view</Button>
+                <Button onClick={this.handleClickOpen} className="Button" color="primary" variant="contained">view</Button>
                 <Dialog aria-labelledby="vq-hub-view-rule" open={this.state.open}>
                     <DialogTitle id="vq-hub-view-rule">Rule {id}</DialogTitle>
                     <DialogContent>
@@ -32,7 +33,7 @@ class VQHubViewRuleButton extends React.Component {
                         </div>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary" autoFocus>Close</Button>
+                        <Button onClick={this.handleClose} color="primary" autoFocus className="Button">Close</Button>
                     </DialogActions>
                 </Dialog>
             </div>

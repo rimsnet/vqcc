@@ -8,13 +8,13 @@ class HubLayout extends React.Component {
         const options = {
             navigaton: this.props.history,
             menus: [
-                { to: '/hubs', name: 'Hubs List' },
+                { to: '/hubs', name: 'Back' },
                 { to: '/actions', name: 'Home' }
             ]
         }
 
         return (
-            <DefaultLayout options={options} dashboard={"Manage Single Hub : " + this.props.match.params.id}> <VQSingleHubDetails options={this.props.history} id={this.props.match.params.id}/></DefaultLayout>
+            <DefaultLayout options={options} dashboard={"Manage Single Hub : " + this.props.match.params.id}> <VQSingleHubDetails options={this.props.history} id={this.props.match.params.id} serial={this.props.match.params.serial} /></DefaultLayout>
         )
     }
 }

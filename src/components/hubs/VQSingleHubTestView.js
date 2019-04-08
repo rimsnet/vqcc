@@ -2,14 +2,16 @@ import React from 'react'
 import { Paper, Table, TableBody, TableRow, TableCell, TableHead } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
-//import axios from 'axios'
+import axios from 'axios'
+
+import '../../App.css'
 
 import VQHubViewTestResultButton from './VQHubViewTestResultButton';
 
 const styles = theme => ({
     root: {},
     table: { width: '100%' },
-    tableCell: {padding:'0px'},
+    tableCell: { padding: '0px' },
     tableCellView: { width: '70px' },
     tableRow: { height: '30px', }
 })
@@ -90,12 +92,13 @@ const tempData = [
 
 class VQSingleHubTestView extends React.Component {
 
-    constructor(props) { super(props); this.state = { data: { data: [] } } }
+    constructor(props) { super(props); this.state = { data: [] } }
     componentDidMount() { this.loadData() }
 
     loadData = () => {
-        console.log(this.props.id)
-        //axios.get('/api/thing/test/find/all/' + this.props.id + '/1').then(res => { this.setState({ data: res.data }) })
+        axios.get('/api/thing/test/result/serial/' + this.props.serial + '/1').then(res => {             
+            this.setState({ data: (res.data.data)?res.data.data:[] })         
+        })
     }
 
 
@@ -103,24 +106,25 @@ class VQSingleHubTestView extends React.Component {
         const { classes } = this.props
         return (
             <>
-                <Table className={classes.table}>
+                <Table className="Table">
                     <TableHead>
-                        <TableRow className={classes.tableRow}>
+                        <TableRow className="Table-row">
                             <TableCell>Tested on</TableCell>
                             <TableCell>Tested By</TableCell>
                             <TableCell>Comment</TableCell>
-                            <TableCell style={{width:'70px'}}>View</TableCell>
+                            <TableCell className="Table-view">View</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {tempData.map((e, index) => (
-                            <TableRow key={index} className={classes.tableRow}>
-                                <TableCell className={classes.tableCell}>{e.testedDateTime}</TableCell>
-                                <TableCell className={classes.tableCell}>{e.testedBy}</TableCell>
-                                <TableCell className={classes.tableCell}>{e.comment}</TableCell>
-                                <TableCell className={classes.tableCellView}><VQHubViewTestResultButton id={e.id} vqSerial={e.vqSerial} /></TableCell>
-                            </TableRow>
-                        ))}
+                        {//tempData.map((e, index) => (
+                           this.state.data.map((e, index) => (
+                                <TableRow key={index} className={classes.tableRow}>
+                                    <TableCell className="Table-cell">{e.testedDateTime}</TableCell>
+                                    <TableCell className="Table-cell">{e.testedBy}</TableCell>
+                                    <TableCell className="Table-cell">{e.comment}</TableCell>
+                                    <TableCell className="Table-view"><VQHubViewTestResultButton id={e.id} vqSerial={e.vqSerial} /></TableCell>
+                                </TableRow>
+                            ))}
                     </TableBody>
                 </Table>
             </>

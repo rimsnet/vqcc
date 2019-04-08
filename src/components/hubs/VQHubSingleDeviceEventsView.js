@@ -5,6 +5,8 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import axios from 'axios'
 
+import '../../App.css'
+
 
 const EventIcon = (props) => {
     switch (props.itemName) {
@@ -22,7 +24,7 @@ const EventDialogBox = (props) => {
 
     return (
         <>
-            <Button color="primary" variant="contained" onClick={handleClickOpen} style={{padding:'0px 8px', fontSize:'11px'}}> view</Button>
+            <Button color="primary" variant="contained" onClick={handleClickOpen} className="Button"> view</Button>
             <Dialog
                 open={open}
                 keepMounted
@@ -86,7 +88,7 @@ const EventDialogBox = (props) => {
 const styles = theme => ({
     root: {},
     table: { width: '100%' },
-    tableRow: { height: '30px' },
+    tableRow: { height: '40px' },
 })
 
 
@@ -95,8 +97,8 @@ class VQHubSingleDeviceEventsView extends React.Component {
 
     state = { events: [] }
 
-    componentDidMount(){
-        axios.get('/api/thing/event/'+this.props.id+'/1').then(e=>{
+    componentDidMount() {
+        axios.get('/api/thing/event/' + this.props.serial).then(e => {
             const events = e.data.data
             this.setState({ events: (events) ? events : [] })
         })
@@ -112,26 +114,23 @@ class VQHubSingleDeviceEventsView extends React.Component {
         const events = this.state.events;
         return (
             <>
-                <Table className={classes.table} padding='none'>
+                <Table className="Table">
                     <TableHead>
-                        <TableRow className={classes.tableRow}>
-                            { /*<TableCell></TableCell>*/}
+                        <TableRow className="Table-row">
                             <TableCell>Event</TableCell>
                             <TableCell>toStatus</TableCell>
                             <TableCell>dateTime</TableCell>
-                            <TableCell>View</TableCell>
+                            <TableCell className="Table-view">View</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {(events.length != 0) ? events.slice(0,10).map((e, i) => (
-                            <TableRow key={e.id} className={classes.tableRow}>
+                        {(events.length != 0) ? events.slice(0, 9).map((e, i) => (
+                            <TableRow key={e.id} className="Table-row">
                                 {/*<TableCell><EventIcon itemName={e.itemName} /></TableCell>*/}
                                 <TableCell>{e.label}</TableCell>
                                 <TableCell>{e.toStatus}</TableCell>
                                 <TableCell>{e.dateTime}</TableCell>
-                                <TableCell>
-                                    <EventDialogBox key={i} {...e} />
-                                </TableCell>
+                                <TableCell className="Table-view"><EventDialogBox key={i} {...e} /></TableCell>
                             </TableRow>
                         )) :
                             <TableRow key={0}>
@@ -146,7 +145,7 @@ class VQHubSingleDeviceEventsView extends React.Component {
 }
 
 VQHubSingleDeviceEventsView.protoType = {
-    classes : PropTypes.object.isRequired
+    classes: PropTypes.object.isRequired
 }
 
 export default withStyles(styles)(VQHubSingleDeviceEventsView)

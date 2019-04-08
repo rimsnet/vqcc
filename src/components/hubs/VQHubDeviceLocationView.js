@@ -1,5 +1,6 @@
 import React from 'react'
 import { TableHead, TableRow, Table, TableCell, TableBody, Dialog, DialogTitle, DialogActions, DialogContent, Button } from '@material-ui/core';
+import '../../App.css'
 
 const tempData = [
     {
@@ -16,7 +17,7 @@ const LocationDialog = (props) => {
 
     return (
         <>
-            <button onClick={handleClickOpen}>view</button>
+            <button onClick={handleClickOpen} className="Button">view</button>
             <Dialog
                 fullWidth={true}
                 maxWidth='lg'
@@ -78,7 +79,7 @@ const LocationDialog = (props) => {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary"> Close</Button>
+                    <Button onClick={handleClose} color="primary" className="Button"> Close</Button>
                 </DialogActions>
             </Dialog>
         </>
@@ -94,7 +95,7 @@ const LocationDialogDeviceItem = (props) => {
 
     return (
         <>
-            <button onClick={handleClickOpen}>view items</button>
+            <button onClick={handleClickOpen} className="Button">view items</button>
             <Dialog aria-labelledby="customized-dialog-title" open={open} fullWidth={true} maxWidth='lg'>
                 <DialogTitle id="customized-dialog-title">Items</DialogTitle>
                 <DialogContent>
@@ -122,7 +123,7 @@ const LocationDialogDeviceItem = (props) => {
 
                 </DialogContent>
 
-                <DialogActions><Button onClick={handleClose} color="primary">Close</Button></DialogActions>
+                <DialogActions><Button onClick={handleClose} color="primary" className="Button">Close</Button></DialogActions>
             </Dialog>
         </>
     )

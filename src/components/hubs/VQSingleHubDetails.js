@@ -33,6 +33,7 @@ class VQSingleHubDetails extends React.Component {
         const { classes } = this.props;
         const { value } = this.state;
         const parent_id = this.props.id;
+        const parent_serial = this.props.serial;
 
         return (
             <Grid container spacing={16}>
@@ -45,7 +46,7 @@ class VQSingleHubDetails extends React.Component {
                     </Card>
                 </Grid>
                 <Grid item md={6}>
-                    <Card style={{boxShadow:'none'}}>
+                    <Card style={{ boxShadow: 'none' }}>
                         <CardHeader
                             title={<span className={classes.title}>Devices</span>}
                             avatar={<WifiTethering />}
@@ -67,7 +68,7 @@ class VQSingleHubDetails extends React.Component {
                     <Card>
                         <CardHeader title={<span className={classes.title}>Test history</span>} avatar={<History />} />
                         <CardContent>
-                            <VQSingleHubTestView id={this.props.id} />
+                            <VQSingleHubTestView id={this.props.id} serial={parent_serial} />
                         </CardContent>
                     </Card>
                 </Grid>
@@ -75,7 +76,7 @@ class VQSingleHubDetails extends React.Component {
                     <Card>
                         <CardHeader title={<span className={classes.title}>Events history</span>} avatar={<History />} />
                         <CardContent>
-                            <VQHubSingleDeviceEventsView id={this.props.id} server={this.props.server} />
+                            <VQHubSingleDeviceEventsView id={this.props.id} server={this.props.server} serial={parent_serial} />
                         </CardContent>
                     </Card>
                 </Grid>

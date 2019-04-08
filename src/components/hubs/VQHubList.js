@@ -1,11 +1,16 @@
 import React from 'react'
-import { Paper, Table, TableBody, TableHead, TableRow, TableCell } from '@material-ui/core'
+import { Paper, Table, TableBody, TableHead, TableRow, TableCell, Button } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import NotificationsActive from '@material-ui/icons/NotificationsActive'
 import VQHubIdentifyButton from './VQHubIdentifyButton'
 import VQHubViewButton from './VQHubViewButton'
 import VQHubNotificationButton from './VQHubNotificationButton'
+
+import axios from 'axios';
+import '../../App.css'
+
+
 //import axios from 'axios';
 //import { connect } from 'react-redux'
 
@@ -393,20 +398,36 @@ const tempData = [
 
 class VQHubList extends React.Component {
 
-    constructor() { super(); this.state = { data: { data: [] } } }
+    constructor() { super(); this.state = { data: [], start: 1, total: 0, disable: false } }
 
     componentDidMount() {
-        //this.props.lists().then((res) => { this.setState({ data: res.list }); console.log(res) });
+        this.loadData();
+    }
+
+    loadData = (start = 1) => {
+        axios.get('/api/thing/hub/all/' + start).then(res => {
+            this.setState({ data: res.data.data, total: res.data.meta.numOfPages })
+        })
+    }
+
+    loadMore = () => {
+        if (this.state.start != this.state.total) {
+            var count = this.state.start + 1
+            axios.get('/api/thing/hub/all/' + count).then(res => { 
+                this.setState({ data: this.state.data.concat(res.data.data), start: count });
+                if(this.state.start == this.state.total){this.setState({ disable: true })}
+            });
+        }
     }
 
     render() {
         const { classes } = this.props
         return (
             <Paper className={classes.paper} square={true}>
-                <Table padding='none' className={classes.table}>
+                <Table padding='none' className="Table">
                     <TableHead>
-                        <TableRow className={classes.tableRow}>
-                            <TableCell className={classes.numberCell}>No</TableCell>
+                        <TableRow className="Table-row">
+                            <TableCell className="Table-num">No</TableCell>
                             <TableCell>Serial Number</TableCell>
                             <TableCell>Hub status</TableCell>
                             <TableCell>Test status</TableCell>
@@ -415,12 +436,12 @@ class VQHubList extends React.Component {
                             <TableCell>Last tested by</TableCell>
                             <TableCell align='center'>Alert</TableCell>
                             <TableCell align='center' className={classes.viewCell}>Identify</TableCell>
-                            <TableCell align='center' className={classes.viewCell}>View</TableCell>
+                            <TableCell align='center' className="Table-view">View</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {tempData.map((e, index) => (
-                            <TableRow key={index} className={classes.tableRow}>
+                        {this.state.data.map((e, index) => (
+                            <TableRow key={index} className="Table-row">
                                 <TableCell className={classes.numberCell}>{index + 1}</TableCell>
                                 <TableCell>{e.vqSerial}</TableCell>
                                 <TableCell>{e.status}</TableCell>
@@ -428,13 +449,16 @@ class VQHubList extends React.Component {
                                 <TableCell>{e.createdDateTime}</TableCell>
                                 <TableCell>{e.updatedDateTime}</TableCell>
                                 <TableCell>Rimzan</TableCell>
-                                <TableCell align='center' className={classes.viewButton}><VQHubNotificationButton notification={e.noti} /></TableCell>
-                                <TableCell align='center'><VQHubIdentifyButton id={e.id} options={this.props.options} /></TableCell>
-                                <TableCell align='center'><VQHubViewButton id={e.id} options={this.props.options} /></TableCell>
+                                <TableCell align='center' className={classes.viewButton}><VQHubNotificationButton notification={e.status} /></TableCell>
+                                <TableCell align='center'><VQHubIdentifyButton id={e.serial} options={this.props.options} /></TableCell>
+                                <TableCell align='center'><VQHubViewButton id={e.id} serial={e.serial} options={this.props.options} /></TableCell>
                             </TableRow>
                         ))}
                     </TableBody>
                 </Table>
+
+                <Button fullWidth onClick={this.loadMore} disabled={this.state.disable}>Load more</Button>
+
             </Paper>
         )
     }

@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
 import { TableCell, TableBody, Table, TableHead, TableRow } from '@material-ui/core';
 
+import '../../App.css'
+
 const styles = theme => ({
     root: {},
     tableRow: { height: '30px' }
@@ -28,20 +30,20 @@ class VQHubSingleDeviceContactView extends React.Component {
             <>
                 <Table>
                     <TableHead>
-                        <TableRow className={classes.tableRow}>
+                        <TableRow className="Table-row">
                             <TableCell>Name</TableCell>
                             <TableCell>Relation</TableCell>
                             <TableCell>Conatact Number</TableCell>
-                            <TableCell>view</TableCell>
+                            <TableCell className="Table-view">view</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {tempData.map((e, i) => (
-                            <TableRow key={i} className={classes.tableRow}>
+                            <TableRow key={i} className="Table-row">
                                 <TableCell>{e.name}</TableCell>
                                 <TableCell>{e.relation}</TableCell>
                                 <TableCell>{e.contact}</TableCell>
-                                <TableCell>view</TableCell>
+                                <TableCell className="Table-view">view</TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

@@ -1,3 +1,40 @@
+.Button-for-table{
+  padding:4px 5px 1px !important;
+}
+
+.Button-identify{
+  margin-left: 10px !important;
+}
+
+.Button-for-card{
+  padding:4px 10px 0px !important;
+}
+
+.Button {
+  padding:4px 10px 0px !important;
+}
+
+.Table{
+  widows: 100% !important;
+}
+
+.Table-row{
+  height: 40px !important;
+}
+
+.Table-cell{
+  padding: 0px !important;
+}
+
+.Table-num{
+  width: 70px !important;
+}
+
+.Table-view{
+  width: 70px !important;
+}
+
+
 .App {
   text-align: center;
 }

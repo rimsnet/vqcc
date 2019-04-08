@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button,FormControl,InputLabel,Input,MenuItem,Select, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@material-ui/core'
+import '../../App.css'
 
 class VQHubAddDeviceButton extends React.Component {
     state = { open: false, age:'' };
@@ -11,10 +12,10 @@ class VQHubAddDeviceButton extends React.Component {
         const data = this.props
         return (
             <>
-                <Button
-                    style={{padding:'0px 8px'}}
+                <Button                    
                     color="primary"
                     variant="contained"
+                    className="Button"
                     onClick={this.handleClickOpen}>Add Device</Button>
 
                 <Dialog
@@ -55,8 +56,8 @@ class VQHubAddDeviceButton extends React.Component {
                         </FormControl>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary">Cancel</Button>
-                        <Button onClick={this.handleClose} color="primary">Add Device</Button>
+                        <Button className="Button" onClick={this.handleClose} color="primary">Cancel</Button>
+                        <Button className="Button" onClick={this.handleClose} color="primary">Add Device</Button>
                     </DialogActions>
                 </Dialog>
             </>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, TextField, DialogActions } from '@material-ui/core'
 import NotificationsActive from '@material-ui/icons/NotificationsActive'
-
+import '../../App.css'
 
 
 class VQHubNotificationButton extends React.Component {
@@ -14,7 +14,7 @@ class VQHubNotificationButton extends React.Component {
 
         var buttonAlert = ''
         switch (this.props.notification) {
-            case 1: buttonAlert = <NotificationsActive onClick={this.handleClickOpen} style={{ color: 'red', cursor: 'pointer' }} />; break;
+            case 'ONLINE': buttonAlert = <NotificationsActive onClick={this.handleClickOpen} style={{ color: 'red', cursor: 'pointer' }} />; break;
             default: buttonAlert = ''; break;
         }
 
@@ -32,8 +32,8 @@ class VQHubNotificationButton extends React.Component {
                         </DialogContentText>
                     </DialogContent>
                     <DialogActions>
-                        <Button onClick={this.handleClose} color="primary" variant="raised">Cancel</Button>
-                        <Button onClick={this.handleClose} color="primary" variant="raised">Go to Hub</Button>
+                        <Button onClick={this.handleClose} color="primary" variant="raised" className="Button">Cancel</Button>
+                        <Button onClick={this.handleClose} color="primary" variant="raised" className="Button">Go to Hub</Button>
                     </DialogActions>
                 </Dialog>
             </>

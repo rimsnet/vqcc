@@ -18,7 +18,7 @@ class App extends Component {
           <Route exact path='/' component={HomeRouter} />
           <Route path='/login' component={LoginRouter} />
           <Route path='/actions' component={ActionsRouter} />
-          <Route path='/hub/:id' component={HubRouter} />
+          <Route path='/hub/:id/:serial' component={HubRouter} />
           <Route path='/hubs' component={HubsRouter} />
           <Route path='/user-access' component={UserAccessRouter} />
           <Route path='/qc-portal/:id' component={QCPortalRouter} />
