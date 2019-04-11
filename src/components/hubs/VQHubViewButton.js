@@ -1,13 +1,13 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+/* import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles' */
 import Button from '@material-ui/core/Button'
 
 import '../../App.css'
 
-const styles = theme => ({
+/* const styles = theme => ({
     viewButton: { padding: '0px 8px' },
-})
+}) */
 
 class VQHubViewButton extends React.Component {
 
@@ -17,7 +17,7 @@ class VQHubViewButton extends React.Component {
 
 
     render() {
-        const { classes } = this.props
+        /* const { classes } = this.props */
         return (
             <Button
                 size="small"
@@ -29,8 +29,8 @@ class VQHubViewButton extends React.Component {
     }
 }
 
-VQHubViewButton.propType = {
+/* VQHubViewButton.propType = {
     classes: PropTypes.object.isRequired
-}
+} */
 
-export default withStyles(styles)(VQHubViewButton)
+export default /* withStyles(styles) */(VQHubViewButton)

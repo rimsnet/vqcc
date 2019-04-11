@@ -2,7 +2,7 @@ import React from 'react'
 import { Paper, Table, TableBody, TableHead, TableRow, TableCell, Button } from '@material-ui/core'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import NotificationsActive from '@material-ui/icons/NotificationsActive'
+/* import NotificationsActive from '@material-ui/icons/NotificationsActive' */
 import VQHubIdentifyButton from './VQHubIdentifyButton'
 import VQHubViewButton from './VQHubViewButton'
 import VQHubNotificationButton from './VQHubNotificationButton'
@@ -28,381 +28,133 @@ const styles = theme => ({
     viewCell: { width: '80px' }
 })
 
-const tempData = [
+/* const tempData = [
+    { id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454654, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 1 },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454654,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454655, status: 'connected', factoryTestStatus: 'fail', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454656, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 1
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454656, status: 'disconnected', factoryTestStatus: 'fail', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454657, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 1
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454657, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 1
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454658, status: 'disconnected', factoryTestStatus: 'fail', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 1
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454659, status: 'disconnected', factoryTestStatus: 'fail', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 1
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454660, status: 'disconnected', factoryTestStatus: 'fail', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 1
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454661, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454662, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454663, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454664, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454665, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454655,
-        status: 'connected',
-        factoryTestStatus: 'fail',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,        status: 'connected',       factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555',
+        noti: 0
+    },
+    {
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,
+        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555',        noti: 1
+    },
+    {
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',
+        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555',        noti: 1
+    },
+    {
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',
         serial: 'AB5464464545555',
         noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454656,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',
+        serial: 'AB5464464545555',        noti: 1
+    },
+    {
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555', noti: 0
+    },
+    {
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555', noti: 1
+    },
+    {
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555', noti: 1
+    },
+    {        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,
+        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555', noti: 0
     },
     {
         id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454656,
-        status: 'disconnected',
-        factoryTestStatus: 'fail',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
+        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555', noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454657,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454657,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454658,
-        status: 'disconnected',
-        factoryTestStatus: 'fail',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454659,
-        status: 'disconnected',
-        factoryTestStatus: 'fail',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454660,
-        status: 'disconnected',
-        factoryTestStatus: 'fail',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454661,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454662,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454663,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454664,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454665,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555',
-        noti: 1
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
+        id: '209c4bbfcfabbdf4c36503278ad155ad',        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',
         serial: 'AB5464464545555', noti: 1
     },
     {
         id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 1
+        vqSerial: 54156454666,        status: 'connected',
+        factoryTestStatus: 'success',        createdDateTime: '12-10-2018 12:10:10 AM',
+        updatedDateTime: '13-10-2018 10:14:05 PM',        serial: 'AB5464464545555', noti: 0
     },
     {
         id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
+        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success',
+        createdDateTime: '12-10-2018 12:10:10 AM',        updatedDateTime: '13-10-2018 10:14:05 PM',
+        serial: 'AB5464464545555', noti: 1    },
+    {
+        id: '209c4bbfcfabbdf4c36503278ad155ad',
+        vqSerial: 54156454666,        status: 'connected',        factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM',
         serial: 'AB5464464545555', noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    },
+    {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM',
         serial: 'AB5464464545555', noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 1
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM',
         serial: 'AB5464464545555', noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 1
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected',
+        factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success',
+        createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
+    }, {
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM',
+        updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
     },
     {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
-    },
-    {
-        id: '209c4bbfcfabbdf4c36503278ad155ad',
-        vqSerial: 54156454666,
-        status: 'connected',
-        factoryTestStatus: 'success',
-        createdDateTime: '12-10-2018 12:10:10 AM',
-        updatedDateTime: '13-10-2018 10:14:05 PM',
-        serial: 'AB5464464545555', noti: 0
+        id: '209c4bbfcfabbdf4c36503278ad155ad', vqSerial: 54156454666, status: 'connected', factoryTestStatus: 'success', createdDateTime: '12-10-2018 12:10:10 AM', updatedDateTime: '13-10-2018 10:14:05 PM', serial: 'AB5464464545555', noti: 0
     }
 
-]
+] */
 
 
 class VQHubList extends React.Component {
 
     constructor() { super(); this.state = { data: [], start: 1, total: 0, disable: false } }
 
-    componentDidMount() {
-        this.loadData();
-    }
+    componentDidMount() { this.loadData(); }
 
     loadData = (start = 1) => {
         axios.get('/api/thing/hub/all/' + start).then(res => {
@@ -411,11 +163,11 @@ class VQHubList extends React.Component {
     }
 
     loadMore = () => {
-        if (this.state.start != this.state.total) {
+        if (this.state.start !== this.state.total) {
             var count = this.state.start + 1
-            axios.get('/api/thing/hub/all/' + count).then(res => { 
+            axios.get('/api/thing/hub/all/' + count).then(res => {
                 this.setState({ data: this.state.data.concat(res.data.data), start: count });
-                if(this.state.start == this.state.total){this.setState({ disable: true })}
+                if (this.state.start === this.state.total) { this.setState({ disable: true }) }
             });
         }
     }

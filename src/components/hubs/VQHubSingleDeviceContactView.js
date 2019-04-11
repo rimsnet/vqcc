@@ -1,14 +1,14 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+/* import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles' */
 import { TableCell, TableBody, Table, TableHead, TableRow } from '@material-ui/core';
 
 import '../../App.css'
 
-const styles = theme => ({
+/* const styles = theme => ({
     root: {},
     tableRow: { height: '30px' }
-})
+}) */
 
 const tempData = [
     { id: 1, name: 'mohamed', relation: 'brother', contact: '0778966336' },
@@ -25,7 +25,7 @@ const tempData = [
 
 class VQHubSingleDeviceContactView extends React.Component {
     render() {
-        const { classes } = this.props
+        /* const { classes } = this.props */
         return (
             <>
                 <Table>
@@ -53,8 +53,8 @@ class VQHubSingleDeviceContactView extends React.Component {
     }
 }
 
-VQHubSingleDeviceContactView.propType = {
+/* VQHubSingleDeviceContactView.propType = {
     classes: PropTypes.object.isRequired
-}
+} */
 
-export default withStyles(styles)(VQHubSingleDeviceContactView)
+export default /* withStyles(styles) */(VQHubSingleDeviceContactView)

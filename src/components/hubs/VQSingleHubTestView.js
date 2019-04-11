@@ -1,5 +1,5 @@
 import React from 'react'
-import { Paper, Table, TableBody, TableRow, TableCell, TableHead } from '@material-ui/core'
+import {  Table, TableBody, TableRow, TableCell, TableHead,Button } from '@material-ui/core'
 import { withStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import axios from 'axios'
@@ -16,7 +16,7 @@ const styles = theme => ({
     tableRow: { height: '30px', }
 })
 
-const tempData = [
+/* const tempData = [
     {
         id: 1,
         testedDateTime: '12-10-2018 10:15:30 AM',
@@ -88,7 +88,7 @@ const tempData = [
         vqSerial: '54545464894'
     }
 
-]
+] */
 
 class VQSingleHubTestView extends React.Component {
 
@@ -127,6 +127,7 @@ class VQSingleHubTestView extends React.Component {
                             ))}
                     </TableBody>
                 </Table>
+                <Button>Load More</Button>
             </>
 
         )

@@ -13,9 +13,7 @@ class HubsLayout extends React.Component {
             ]
         }
 
-        return (
-            <DefaultLayout options={options} dashboard="Manage Hubs"><VQHubListingTab options={this.props.history} /></DefaultLayout>
-        )
+        return (<DefaultLayout options={options} dashboard="Manage Hubs"><VQHubListingTab options={this.props.history} /></DefaultLayout>)
     }
 }
 

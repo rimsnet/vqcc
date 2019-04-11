@@ -2,13 +2,13 @@ import React from 'react'
 import { TableHead, TableRow, Table, TableCell, TableBody, Dialog, DialogTitle, DialogActions, DialogContent, Button } from '@material-ui/core';
 import '../../App.css'
 
-const tempData = [
+/* const tempData = [
     {
         id: 1,
         name: 'Lorem ipsum',
         numOfDevices: 1
     }
-]
+] */
 
 const LocationDialog = (props) => {
     const [open, setOpen] = React.useState(false);
@@ -155,7 +155,7 @@ class VQHubDeviceLocationView extends React.Component {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {(this.state.locations.length != 0) ? this.state.locations.map((e, i) => (
+                    {(this.state.locations.length !== 0) ? this.state.locations.map((e, i) => (
                         <TableRow key={i}>
                             <TableCell>{e.label}</TableCell>
                             <TableCell>{e.numOfDevices}</TableCell>

@@ -4,6 +4,7 @@ import VQSingleHubDetails from '../components/hubs/VQSingleHubDetails'
 
 
 class HubLayout extends React.Component {
+    
     render() {
         const options = {
             navigaton: this.props.history,

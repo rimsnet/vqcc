@@ -4,6 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import VQActionHubsCard from '../components/cards/VQActionHubsCard';
 import { Paper } from '@material-ui/core';
 
+import './Layout.css'
+
 const styles = theme => ({
     root: {
         width: 'auto',
@@ -15,17 +17,9 @@ const styles = theme => ({
             marginRight: 'auto',
         },
     },
-    paper: {
-        display: 'inline-flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    actionCard: {
-        margin: '10px'
-    },
     commantText: {
         marginTop: theme.spacing.unit * 10,
-        textAlign:'center'
+        textAlign: 'center'
     }
 })
 
@@ -33,10 +27,10 @@ class ActionsLayout extends React.Component {
 
     render() {
         const { classes } = this.props
-         return (
+        return (
             <div className={classes.root}>
                 <h2 className={classes.commantText}>Vesta Dashboard</h2>
-                <Paper className={classes.paper} elevation={0}>
+                <Paper className="Action-paper" elevation={0}>
                     <VQActionHubsCard
                         image="https://previews.123rf.com/images/amin268/amin2681706/amin268170601102/81040012-router-flat-icon-internet-and-wireless-wifi-vector-graphics-a-colorful-solid-pattern-on-a-white-back.jpg"
                         name="Hubs"
@@ -59,7 +53,7 @@ class ActionsLayout extends React.Component {
                         description="Billing"
                         actions={this.props.history}
                     />
-                </Paper>               
+                </Paper>
             </div>
         )
     }

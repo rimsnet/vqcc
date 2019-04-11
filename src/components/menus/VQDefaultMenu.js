@@ -16,7 +16,6 @@ class VQDefaultMenu extends React.Component {
                         <ListItemIcon><DashboardIcon /></ListItemIcon><Link to={e.to} style={{textDecoration:'none'}}><ListItemText primary={e.name} /></Link>
                     </ListItem>
                 ))}
-
             </List>
         )
     }

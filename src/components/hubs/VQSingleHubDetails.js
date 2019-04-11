@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from '@material-ui/core/styles'
-import Typography from '@material-ui/core/Typography'
 import { History, ContactPhone, WifiTethering, DeveloperBoard, LocationOn } from '@material-ui/icons'
-import { Paper, Grid, Card, CardContent, CardHeader, CardActions, Button, Collapse } from '@material-ui/core'
+import { Grid, Card, CardContent, CardHeader } from '@material-ui/core'
 
 import VQHubAddDeviceButton from '../hubs/VQHubAddDeviceButton'
 import VQHubAddContactButton from '../hubs/VQHubAddContactButton'
@@ -14,7 +13,7 @@ import VQHubSingleDeviceContactView from '../hubs/VQHubSingleDeviceContactView'
 import VQHubSingleDeviceRulesView from '../hubs/VQHubSingleDeviceRulesView'
 import VQSingleHubTestView from './VQSingleHubTestView'
 import VQHubDeviceLocationView from './VQHubDeviceLocationView'
-import VQHubSingleDeviceList from './VQHubSingleDeviceList'
+import VQHubSingleDeviceList from './sensors/VQHubSingleDeviceList'
 import VQHubSingleDeviceEventsView from './VQHubSingleDeviceEventsView'
 
 
@@ -31,7 +30,7 @@ class VQSingleHubDetails extends React.Component {
 
     render() {
         const { classes } = this.props;
-        const { value } = this.state;
+        /* const { value } = this.state; */
         const parent_id = this.props.id;
         const parent_serial = this.props.serial;
 
@@ -50,7 +49,7 @@ class VQSingleHubDetails extends React.Component {
                         <CardHeader
                             title={<span className={classes.title}>Devices</span>}
                             avatar={<WifiTethering />}
-                            action={<div><VQHubAddDeviceButton id={parent_id} /> <VQHubAddLocationButton id={parent_id} /></div>} />
+                            action={<VQHubAddDeviceButton id={parent_id} />} />
                         <CardContent>
                             <VQHubSingleDeviceList id={parent_id} />
                         </CardContent>
@@ -58,7 +57,7 @@ class VQSingleHubDetails extends React.Component {
                 </Grid>
                 <Grid item md={6}>
                     <Card>
-                        <CardHeader title={<span className={classes.title}>Location history</span>} avatar={<LocationOn />} />
+                        <CardHeader title={<span className={classes.title}>Location </span>} avatar={<LocationOn />} action={<VQHubAddLocationButton id={parent_id} />}/>
                         <CardContent>
                             <VQHubDeviceLocationView id={this.props.id} {...this.props} />
                         </CardContent>

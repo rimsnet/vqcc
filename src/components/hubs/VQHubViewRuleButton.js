@@ -1,12 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+/* import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'*/
 import { DialogContent, Dialog, DialogActions, DialogTitle, Button } from '@material-ui/core';
 import '../../App.css'
 
-const styles = theme => ({
+/* const styles = theme => ({
     root: {},
-})
+}) */
 
 class VQHubViewRuleButton extends React.Component {
 
@@ -16,7 +16,7 @@ class VQHubViewRuleButton extends React.Component {
 
     render() {
 
-        const { classes } = this.props
+        /*const { classes } = this.props*/
         const id = this.props.id
 
         return (
@@ -41,8 +41,8 @@ class VQHubViewRuleButton extends React.Component {
     }
 }
 
-VQHubViewRuleButton.protoType = {
+/*VQHubViewRuleButton.protoType = {
     classes: PropTypes.object.isRequired
-}
+}*/
 
-export default withStyles(styles)(VQHubViewRuleButton)
+export default /* withStyles(styles)*/(VQHubViewRuleButton)

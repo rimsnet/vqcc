@@ -1,25 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles';
+/* import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles'; */
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogActions from '@material-ui/core/DialogActions';
-//import IconButton from '@material-ui/core/IconButton';
-//import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 import '../../App.css'
 
-const styles = theme => ({
+/* const styles = theme => ({
     viewButton: { padding: '0px 8px' },
     redButton: { padding: '0px 8px', marginRight: '10px' },
     greenButton: { padding: '0px 8px', marginRight: '10px' },
     yellowButton: { padding: '0px 8px', marginRight: '10px' }
-})
+}) */
 
 class VQHubIdentifyButton extends React.Component {
 
@@ -37,7 +35,7 @@ class VQHubIdentifyButton extends React.Component {
     }
 
     render() {
-        const { classes } = this.props
+        /* const { classes } = this.props */
         return (<>
             <Button
                 size="small"
@@ -74,8 +72,8 @@ class VQHubIdentifyButton extends React.Component {
     }
 }
 
-VQHubIdentifyButton.propType = {
+/* VQHubIdentifyButton.propType = {
     classes: PropTypes.object.isRequired
-}
+} */
 
-export default withStyles(styles)(VQHubIdentifyButton)
+export default /* withStyles(styles) */(VQHubIdentifyButton)

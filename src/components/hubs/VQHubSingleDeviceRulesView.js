@@ -1,15 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+/* import PropTypes from 'prop-types'
+import { withStyles } from '@material-ui/core/styles' */
 import { Table, TableCell, TableRow, TableHead, TableBody } from '@material-ui/core'
 import VQHubViewRuleButton from './VQHubViewRuleButton'
 import '../../App.css'
 
-const styles = theme => ({
+/* const styles = theme => ({
     root: {},
     tableCell: { padding: '0px' },
     tableRow: { height: '40px' }
-})
+}) */
 
 const tempData = [
     { id: 1, rule: 'Ipsum', type: 'Lorem Ipsum' },
@@ -26,7 +26,7 @@ const tempData = [
 
 class VQHubSingleDeviceRulesView extends React.Component {
     render() {
-        const { classes } = this.props
+       /* const { classes } = this.props */
         return (
             <>
                 <Table>
@@ -52,8 +52,8 @@ class VQHubSingleDeviceRulesView extends React.Component {
     }
 }
 
-VQHubSingleDeviceRulesView.protoType = {
+/* VQHubSingleDeviceRulesView.protoType = {
     classes: PropTypes.object.isRequired
-}
+} */
 
-export default withStyles(styles)(VQHubSingleDeviceRulesView)
+export default /* withStyles(styles) */(VQHubSingleDeviceRulesView)

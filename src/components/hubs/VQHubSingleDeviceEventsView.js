@@ -1,21 +1,21 @@
 import React from 'react'
-import { Table, DialogActions, Button, TableHead, TableCell, TableBody, TableRow, Dialog, DialogTitle, DialogContent, DialogContentText } from '@material-ui/core';
-import { Home, BatteryAlert, Security } from '@material-ui/icons/'
+import { Table, DialogActions, Button, TableHead, TableCell, TableBody, TableRow, Dialog, DialogTitle, DialogContent } from '@material-ui/core';
+/* import { Home, BatteryAlert, Security } from '@material-ui/icons/' 
 import PropTypes from 'prop-types'
-import { withStyles } from '@material-ui/core/styles'
+import { withStyles } from '@material-ui/core/styles' */
 import axios from 'axios'
 
 import '../../App.css'
 
 
-const EventIcon = (props) => {
+/* const EventIcon = (props) => {
     switch (props.itemName) {
         case 'zware_device_zware_server_node35_battery_level': return <BatteryAlert />
         case 'arm_security_system': return <Security />
         case 'zware_device_zware_server_node35_alarm_entry': return <Home />
         default: return ''
     }
-}
+} */
 
 const EventDialogBox = (props) => {
     const [open, setOpen] = React.useState(false);
@@ -85,12 +85,64 @@ const EventDialogBox = (props) => {
 }
 
 
-const styles = theme => ({
+/* const styles = theme => ({
     root: {},
     table: { width: '100%' },
     tableRow: { height: '40px' },
-})
+}) */
 
+
+const tempEvent = [
+    {
+        id:'5454',
+        label:'test',
+        toStatus:'test',
+        dateTime:'01-05-2019'
+    },
+    {
+        id:'5454',
+        label:'test',
+        toStatus:'test',
+        dateTime:'01-05-2019'
+    },
+    {
+        id:'5454',
+        label:'test',
+        toStatus:'test',
+        dateTime:'01-05-2019'
+    },
+    {
+        id:'5454',
+        label:'test',
+        toStatus:'test',
+        dateTime:'01-05-2019'
+    },
+    {
+        id:'5454',
+        label:'test',
+        toStatus:'test',
+        dateTime:'01-05-2019'
+    },
+    {
+        id:'5454',
+        label:'test',
+        toStatus:'test',
+        dateTime:'01-05-2019'
+    },
+    {
+        id:'5454',
+        label:'test',
+        toStatus:'test',
+        dateTime:'01-05-2019'
+    },
+    {
+        id:'5454',
+        label:'test',
+        toStatus:'test',
+        dateTime:'01-05-2019'
+    },
+
+]
 
 
 class VQHubSingleDeviceEventsView extends React.Component {
@@ -99,7 +151,8 @@ class VQHubSingleDeviceEventsView extends React.Component {
 
     componentDidMount() {
         axios.get('/api/thing/event/' + this.props.serial).then(e => {
-            const events = e.data.data
+            //const events = e.data.data
+            const events = tempEvent;
             this.setState({ events: (events) ? events : [] })
         })
     }
@@ -110,7 +163,7 @@ class VQHubSingleDeviceEventsView extends React.Component {
     }
 
     render() {
-        const { classes } = this.props
+        /* const { classes } = this.props */
         const events = this.state.events;
         return (
             <>
@@ -124,8 +177,8 @@ class VQHubSingleDeviceEventsView extends React.Component {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {(events.length != 0) ? events.slice(0, 9).map((e, i) => (
-                            <TableRow key={e.id} className="Table-row">
+                        {(events.length !== 0) ? events.slice(0, 9).map((e, i) => (
+                            <TableRow key={i} className="Table-row">
                                 {/*<TableCell><EventIcon itemName={e.itemName} /></TableCell>*/}
                                 <TableCell>{e.label}</TableCell>
                                 <TableCell>{e.toStatus}</TableCell>
@@ -144,8 +197,8 @@ class VQHubSingleDeviceEventsView extends React.Component {
     }
 }
 
-VQHubSingleDeviceEventsView.protoType = {
+/* VQHubSingleDeviceEventsView.protoType = {
     classes: PropTypes.object.isRequired
-}
+} */
 
-export default withStyles(styles)(VQHubSingleDeviceEventsView)
+export default /* withStyles(styles) */ (VQHubSingleDeviceEventsView)
