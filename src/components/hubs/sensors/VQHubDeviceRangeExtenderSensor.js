@@ -5,9 +5,7 @@ import { Card, CardContent, CardHeader, ListItem, ListItemText } from '@material
 import PropTypes from 'prop-types' */
 
 import Battery20Icon from '@material-ui/icons/Battery20';
-
-
-import '../Hub.css'
+import { DeviceStatus, DeviceTitle } from './DeviceComponents'
 
 /* const styles = theme =>({}) */
 
@@ -18,14 +16,14 @@ class VQHubDeviceRangeExtenderSensor extends React.Component {
         const data = this.props */
         return (
             <Card raised={true}>
-                <CardHeader className="Card-header" avatar={<SettingsRemote />} title="Range Extender" subheader="connected" />
-                <CardContent className="Card-content">
-                    <div className="Device">
+                <CardHeader className="card-header" avatar={<SettingsRemote />} title={<DeviceTitle title="Range Extender"/>} subheader={<DeviceStatus status={1} />} />
+                <CardContent className="card-content">
+                    <div className="device">
                         <ListItem>
                             <Battery20Icon />
                             <ListItemText primary="Power Level" secondary='10%' />
                         </ListItem>
-                    </div>                  
+                    </div>
                 </CardContent>
             </Card>
         )

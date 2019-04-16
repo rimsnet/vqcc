@@ -1,0 +1,14 @@
+@import '../../../App.css';
+
+.Card-content{
+    padding-top: 1
+}
+
+.Card-header{
+    padding-bottom: 10
+}
+
+.Device{
+    display: flex
+}
+

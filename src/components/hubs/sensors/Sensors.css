@@ -12,3 +12,38 @@
     margin: 0 0 1em;
     width: 100%;
 }
+
+.device-connected {
+    color:green;
+}
+
+.device-disconnected {
+    color:red;
+}
+
+.device-door-open{
+    color:green;
+}
+
+.device-door-close{
+    color:red;
+}
+
+.device-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.card-content{
+    padding-left: 0px !important;
+    padding-top: 0px !important;
+}
+
+.card-header{
+    padding-bottom: 10;
+    background: #a4a4a41f;
+}
+
+.device{
+    display: flex
+}

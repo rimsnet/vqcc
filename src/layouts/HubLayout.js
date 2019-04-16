@@ -1,6 +1,6 @@
 import React from 'react'
 import DefaultLayout from './DefaultLayout'
-import VQSingleHubDetails from '../components/hubs/VQSingleHubDetails'
+import VQSingleHubDetails from '../components/hubs/hub/VQSingleHubDetails'
 
 
 class HubLayout extends React.Component {

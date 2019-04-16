@@ -8,9 +8,9 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 
-import VQHubList from '../hubs/VQHubList'
+import { HubList } from '../hubs/home/HomeComponents'
 
-import '../../App.css' 
+import './Tab.css'
 
 function TabContainer(props) {
     return (
@@ -68,16 +68,25 @@ const styles = theme => ({
         top: '-20px'
     },
     viewButton: { padding: '0px 8px' },
+    menu: { width: 50, },
 });
+
+
 
 class VQHubListingTab extends React.Component {
 
     state = {
         value: 0,
-        search: ''
+        search: '',
+        currency: 'EUR'
     };
 
     handleChange = (event, value) => { this.setState({ value }); };
+
+    handleOptionChange = name => event => {
+        console.log([name])
+        this.setState({ [name]: event.target.value });
+    };
 
     searchHandler = (e) => {
         this.setState({ search: e.target.value })
@@ -86,6 +95,17 @@ class VQHubListingTab extends React.Component {
     render() {
         const { classes } = this.props;
         const { value } = this.state;
+        const currencies = [
+            {
+                value: 'user',
+                label: 'User',
+            },
+            {
+                value: 'all',
+                label: 'All',
+            }
+        ];
+
 
         return (
             <div className={classes.root}>
@@ -98,6 +118,25 @@ class VQHubListingTab extends React.Component {
                 </AppBar>
                 <div className={classes.searchBar}>
                     <TextField
+                        id="standard-select-currency-native"
+                        select
+                        className={classes.textField}
+                        value={this.state.currency}
+                        onChange={this.handleOptionChange('currency')}
+                        SelectProps={{
+                            native: true,
+              
+                        }}
+                        margin="normal"
+                    >
+                        {currencies.map(option => (
+                            <option key={option.value} value={option.value}>
+                                {option.label}
+                            </option>
+                        ))}
+                    </TextField>
+
+                    <TextField
                         className={classes.textField}
                         defaultValue=""
                         placeholder="Search"
@@ -107,7 +146,7 @@ class VQHubListingTab extends React.Component {
                     />
                     <Button className="Button-for-table" color="primary" variant="contained">Search</Button>
                 </div>
-                {value === 0 && <TabContainer><VQHubList options={this.props.options}/></TabContainer>}
+                {value === 0 && <TabContainer><HubList options={this.props.options} search={this.state.search} /></TabContainer>}
                 {value === 1 && <TabContainer>Table has to be updated</TabContainer>}
                 {value === 2 && <TabContainer>Table has to be updated</TabContainer>}
 

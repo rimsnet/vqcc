@@ -6,10 +6,7 @@ import PropTypes from 'prop-types' */
 
 import Battery20Icon from '@material-ui/icons/Battery20';
 import Vibration from '@material-ui/icons/Vibration';
-
-
-
-import '../Hub.css'
+import { DeviceStatus, DeviceTitle } from './DeviceComponents'
 
 /* const styles = theme =>({}) */
 
@@ -20,10 +17,10 @@ class VQHubDeviceDoorSensor extends React.Component {
         const data = this.props */
         return (
             <Card raised={true}>
-                <CardHeader className="Card-header" avatar={<SettingsRemote />} title="Door" subheader="opened" />
-                <CardContent className="Card-content">
+                <CardHeader className="card-header" avatar={<SettingsRemote />} title={<DeviceTitle title="Door" />} subheader={<DeviceStatus status={1} />} />
+                <CardContent className="card-content">
 
-                    <div className="Device">
+                    <div className="device">
                         <ListItem>
                             <Battery20Icon />
                             <ListItemText primary="Battery" secondary='10%' />
@@ -35,7 +32,7 @@ class VQHubDeviceDoorSensor extends React.Component {
                         </ListItem>
                     </div>
 
-                  
+
                 </CardContent>
             </Card>
         )
@@ -46,4 +43,4 @@ class VQHubDeviceDoorSensor extends React.Component {
     classes: PropTypes.object.isRequired,
 } */
 
-export default /* withStyles(styles) */ (VQHubDeviceDoorSensor)
+export default VQHubDeviceDoorSensor /* withStyles(styles) */ 

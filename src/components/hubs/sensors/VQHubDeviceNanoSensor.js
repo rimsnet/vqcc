@@ -6,24 +6,21 @@ import PropTypes from 'prop-types' */
 
 import Battery20Icon from '@material-ui/icons/Battery20';
 import Vibration from '@material-ui/icons/Vibration';
-
-
-
-import '../Hub.css'
+import { DeviceStatus, DeviceTitle } from './DeviceComponents'
 
 /* const styles = theme =>({}) */
 
 class VQHubDeviceNanoSensor extends React.Component {
 
     render() {
-       /* const { classes } = this.props;
-        const data = this.props */
+        /* const { classes } = this.props;
+         const data = this.props */
         return (
             <Card raised={true}>
-                <CardHeader className="Card-header" avatar={<SettingsRemote />} title="NonoMode" subheader="" />
-                <CardContent className="Card-content">
+                <CardHeader className="card-header" avatar={<SettingsRemote />} title={<DeviceTitle title="Nano Mode" />} subheader={<DeviceStatus status={1} />} />
+                <CardContent className="card-content">
 
-                    <div className="Device">
+                    <div className="device">
                         <ListItem>
                             <Battery20Icon />
                             <ListItemText primary="Battery" secondary='10%' />
@@ -35,7 +32,7 @@ class VQHubDeviceNanoSensor extends React.Component {
                         </ListItem>
                     </div>
 
-                  
+
                 </CardContent>
             </Card>
         )
